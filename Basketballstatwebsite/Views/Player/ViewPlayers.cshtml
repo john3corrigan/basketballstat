@@ -1,0 +1,34 @@
+﻿@model Basketballstatwebsite.Models.PlayerViewModel
+@using Basketballstatwebsite.Models 
+@{
+    ViewBag.Title = "ViewPlayers";
+}
+
+<h2>ViewPlayers</h2>
+<table class="table">
+    <tr>
+        <th>Player ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Height</th>
+        <th>Birth Date</th>
+        <th>Team</th>
+    </tr>
+    @foreach (Player _playerinfo in Model.PlayerList)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => _playerinfo.PlayerID)</td>
+            <td>@Html.DisplayFor(m=>_playerinfo.Firstname)</td>
+            <td>@Html.DisplayFor(m=>_playerinfo.Lastname)</td>
+            <td>@Html.DisplayFor(m=> _playerinfo.height)</td>
+            <td>@Html.DisplayFor(m=>_playerinfo.birthdate)</td>
+            <td>@Html.DisplayFor(m=> _playerinfo.TeamName)</td>
+            <td>@Html.ActionLink("Delete Player", "Delete",  new {playerid=_playerinfo.PlayerID })</td>
+
+
+        </tr>
+    }
+
+
+</table>
+
